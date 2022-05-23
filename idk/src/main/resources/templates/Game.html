@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <title> Welcome to game </title> 
+</head>
+
+<body>
+    <h3>Here is your status...</h3> 
+    <br/>
+    <br/>
+    <div th:each="l : ${gameLog}">
+        <p th:text="${l}"> </p>
+    </div>
+    <br/>
+    <br/>
+    <table>
+        <tr id="Actions" th:each="b : ${actionList}">
+            <td><input type="button" th:text="${b}"></td>
+        </tr>
+    </table>
+</html>
