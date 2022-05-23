@@ -24,14 +24,15 @@ public class HelloWorldController {
         return "MainPage";
     }
 
-    @PostMapping("welcome")
-    public String welcome(@RequestParam("name") String name, Model model)
+    @PostMapping("game")
+    public String game(@RequestParam("name") String name, @RequestParam("action") String action, Model model)
     {
         ArrayList<String> gameLog = new ArrayList<String>();
         gameLog.add("LineOne");
         gameLog.add("LineTwo");
         gameLog.add("LineThree");
         gameLog.add("LineFour");
+        gameLog.add(action);
 
         ArrayList<String> actionList = new ArrayList<String>();
         actionList.add("Action 1");
@@ -45,4 +46,25 @@ public class HelloWorldController {
 
         return "Game";
     }
+    // @PostMapping("game")
+    // public String game(@RequestParam("name") String name, Model model)
+    // {
+    //     ArrayList<String> gameLog = new ArrayList<String>();
+    //     gameLog.add("LineOne");
+    //     gameLog.add("LineTwo");
+    //     gameLog.add("LineThree");
+    //     gameLog.add("LineFour");
+
+    //     ArrayList<String> actionList = new ArrayList<String>();
+    //     actionList.add("Action 1");
+    //     actionList.add("Action 2");
+    //     actionList.add("Action 3");
+    //     actionList.add("Action 4");
+
+    //     model.addAttribute("gameLog", gameLog);
+    //     model.addAttribute("actionList", actionList);
+    //     model.addAttribute("name", name);
+
+    //     return "Game";
+    // }
 }

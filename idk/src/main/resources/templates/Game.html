@@ -13,11 +13,11 @@
     </div>
     <br/>
     <br/>
-    <form action="welcome" method="post">
+    <form action="game" method="post">
         <input id="name" name="name" type="hidden" th:value="${name}" />
         <table>
             <tr th:each="b : ${actionList}">
-                <td><input th:id="${b}" th:name="${b}" type="submit" th:value="${b}"></td>
+                <td><input  th:name="action" type="submit" th:value="${b}"></td>
             </tr>
         </table>    
     </form>
