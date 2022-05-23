@@ -41,7 +41,7 @@ public class HelloWorldController {
 
         model.addAttribute("gameLog", gameLog);
         model.addAttribute("actionList", actionList);
-        // model.addAttribute("name", name);
+        model.addAttribute("name", name);
 
         return "Game";
     }
