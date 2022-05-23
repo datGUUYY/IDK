@@ -13,9 +13,12 @@
     </div>
     <br/>
     <br/>
-    <table>
-        <tr id="Actions" th:each="b : ${actionList}">
-            <td><input type="button" th:text="${b}"></td>
-        </tr>
-    </table>
+    <form action="welcome" method="post">
+        <input id="name" name="name" type="hidden" th:value="${name}" />
+        <table>
+            <tr th:each="b : ${actionList}">
+                <td><input th:id="${b}" th:name="${b}" type="submit" th:value="${b}"></td>
+            </tr>
+        </table>    
+    </form>
 </html>
