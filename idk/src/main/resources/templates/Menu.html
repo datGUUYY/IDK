@@ -21,8 +21,8 @@ unhide the elements.
     </h3>
     <br/>
     <br/>
-    <table th:each="b: ${Table}">
-        <tr>
+    <table>
+        <tr th:each="b: ${Table}">
             <td th:text="${b.name}"></td>
             <td> || </td>
             <td th:text="'you have ' + ${b.quantity}"> </td>
