@@ -3,6 +3,8 @@ package com.treydev.idk;
 import java.util.ArrayList;
 // import java.util.List;
 
+// import com.treydev.myClass;
+
 // import org.springframework.session.Session;
 // import org.springframework.boot.builder.SpringApplicationBuilder;
 // import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -46,25 +48,17 @@ public class HelloWorldController {
 
         return "Game";
     }
-    // @PostMapping("game")
-    // public String game(@RequestParam("name") String name, Model model)
-    // {
-    //     ArrayList<String> gameLog = new ArrayList<String>();
-    //     gameLog.add("LineOne");
-    //     gameLog.add("LineTwo");
-    //     gameLog.add("LineThree");
-    //     gameLog.add("LineFour");
 
-    //     ArrayList<String> actionList = new ArrayList<String>();
-    //     actionList.add("Action 1");
-    //     actionList.add("Action 2");
-    //     actionList.add("Action 3");
-    //     actionList.add("Action 4");
+    @GetMapping("menu")
+    public String menu(Model model)
+    {
+        //TODO: in actual implementation, something to get menu type
+        model.addAttribute("TableName", "SAMPLE MOCK item");
+        ArrayList<Items> Table = new ArrayList<Items>();
 
-    //     model.addAttribute("gameLog", gameLog);
-    //     model.addAttribute("actionList", actionList);
-    //     model.addAttribute("name", name);
-
-    //     return "Game";
-    // }
+        Table.add(new Items("Potions",(short) 3,"They taste like fish."));
+        Table.add(new Items("Capsules",(short) 65 ,"They also taste like fish."));
+        model.addAttribute("Table", Table);
+        return "Menu";
+    }
 }

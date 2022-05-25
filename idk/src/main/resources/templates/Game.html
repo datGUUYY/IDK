@@ -17,7 +17,7 @@
         <input id="name" name="name" type="hidden" th:value="${name}" />
         <table>
             <tr th:each="b : ${actionList}">
-                <td><input  th:name="action" type="submit" th:value="${b}"></td>
+                <td><input  th:name="action" type="submit" th:value="${b}"> </input></td>
             </tr>
         </table>    
     </form>
