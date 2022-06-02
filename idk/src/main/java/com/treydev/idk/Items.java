@@ -13,4 +13,19 @@ public class Items {
     public short quantity;
     public String description;
     public static ArrayList<Items> inventory;
+    public static String consume(String name)
+    {
+       Items item = findByName(name);
+       item.quantity--;
+       if(item.quantity < 1) //0, or, somehow, negative
+            inventory.remove(item);
+        return "You consumed a " + name;
+    }
+    public static Items findByName(String name)
+    {
+        for(Items item : Items.inventory)
+            if(item.name.equals(name))
+                return item;
+        return null; //TODO: be... worried about this I guess?
+    }
 }

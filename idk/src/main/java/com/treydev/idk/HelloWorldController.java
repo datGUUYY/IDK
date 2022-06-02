@@ -74,11 +74,14 @@ public class HelloWorldController {
             Items.inventory.add(new Items("Red Potion", (short) 15, "Smells kinda fishy"));
             Items.inventory.add(new Items("Pink Potion", (short) 11, "Smells kinda beefy"));
        }
-       if(name != null)
-           model.addAttribute("output", "You consumed a " + name);
-       else
-            model.addAttribute("output", "What would you like to do?");
-       model.addAttribute("Table", Items.inventory);
+
+       String output = "";
+       if(!name.isEmpty())
+           output += Items.consume(name);
+
+        output += "\nWhat would you like to do?";
+        model.addAttribute("output", output);
+        model.addAttribute("Table", Items.inventory);
         return "Menu";
     }
 }
