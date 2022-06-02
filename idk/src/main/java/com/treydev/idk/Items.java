@@ -28,4 +28,13 @@ public class Items {
                 return item;
         return null; //TODO: be... worried about this I guess?
     }
+    public static void InitializeStubbedInventory()
+    {
+        if(inventory == null)
+        {
+             inventory = new ArrayList<Items>();
+             inventory.add(new Items("Red Potion", (short) 15, "Smells kinda fishy"));
+             inventory.add(new Items("Pink Potion", (short) 11, "Smells kinda beefy"));
+        }
+    }
 }

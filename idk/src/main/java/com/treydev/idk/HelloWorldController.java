@@ -68,12 +68,7 @@ public class HelloWorldController {
     {
         //TODO: in actual implementation, something to get menu type
        model.addAttribute("TableName", "Inventory");
-       if(Items.inventory == null)
-       {
-            Items.inventory = new ArrayList<Items>();
-            Items.inventory.add(new Items("Red Potion", (short) 15, "Smells kinda fishy"));
-            Items.inventory.add(new Items("Pink Potion", (short) 11, "Smells kinda beefy"));
-       }
+       Items.InitializeStubbedInventory();
 
        String output = "";
        if(!name.isEmpty())
