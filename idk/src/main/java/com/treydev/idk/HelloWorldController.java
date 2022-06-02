@@ -49,7 +49,7 @@ public class HelloWorldController {
         return "Game";
     }
 
-    @GetMapping("menu")
+    @GetMapping("Inventory")
     public String menu(Model model)
     {
         //TODO: in actual implementation, something to get menu type
@@ -61,9 +61,9 @@ public class HelloWorldController {
             Item.inventory.add(new Item("Pink Potion", (short) 11, "Smells kinda beefy"));
        }
        model.addAttribute("Table", Item.inventory);
-        return "Menu";
+        return "Inventory";
     }
-    @PostMapping("menu")
+    @PostMapping("Inventory")
     public String consume(@RequestParam("name") String name,Model model)
     {
         //TODO: in actual implementation, something to get menu type
@@ -77,6 +77,6 @@ public class HelloWorldController {
         output += "\nWhat would you like to do?";
         model.addAttribute("output", output);
         model.addAttribute("Table", Item.inventory);
-        return "Menu";
+        return "Inventory";
     }
 }
