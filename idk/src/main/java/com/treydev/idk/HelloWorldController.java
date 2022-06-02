@@ -53,12 +53,28 @@ public class HelloWorldController {
     public String menu(Model model)
     {
         //TODO: in actual implementation, something to get menu type
-        model.addAttribute("TableName", "SAMPLE MOCK item");
-        ArrayList<Items> Table = new ArrayList<Items>();
-
-        Table.add(new Items("Potions",(short) 3,"They taste like fish."));
-        Table.add(new Items("Capsules",(short) 65 ,"They also taste like fish."));
-        model.addAttribute("Table", Table);
+       model.addAttribute("TableName", "Inventory");
+       if(Items.inventory == null)
+       {
+            Items.inventory = new ArrayList<Items>();
+            Items.inventory.add(new Items("Red Potion", (short) 15, "Smells kinda fishy"));
+            Items.inventory.add(new Items("Pink Potion", (short) 11, "Smells kinda beefy"));
+       }
+       model.addAttribute("Table", Items.inventory);
+        return "Menu";
+    }
+    @PostMapping("menu")
+    public String consume(@RequestParam("name") String name,Model model)
+    {
+        //TODO: in actual implementation, something to get menu type
+       model.addAttribute("TableName", "Inventory");
+       if(Items.inventory == null)
+       {
+            Items.inventory = new ArrayList<Items>();
+            Items.inventory.add(new Items("Red Potion", (short) 15, "Smells kinda fishy"));
+            Items.inventory.add(new Items("Pink Potion", (short) 11, "Smells kinda beefy"));
+       }
+       model.addAttribute("Table", Items.inventory);
         return "Menu";
     }
 }

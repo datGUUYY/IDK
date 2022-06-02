@@ -22,18 +22,20 @@ unhide the elements.
     <br/>
     <br/>
     <table>
-        <tr th:each="b: ${Table}">
-            <td th:text="${b.name}"></td>
-            <td> || </td>
-            <td th:text="'you have ' + ${b.quantity}"> </td>
-            <td> || </td>
-            <td th:text="${b.description}"> </td>
-            <td> || </td>
-            <td> 
-                <input type="button" value="C O N S U M E"> 
-            </td>
-        </tr>
-
+        <form action="menu" method="post">
+            <input id="name" name="name" type="hidden" value="" />
+            <tr th:each="b: ${Table}">
+                <td th:text="${b.name}"></td>
+                <td> || </td>
+                <td th:text="'you have ' + ${b.quantity}"> </td>
+                <td> || </td>
+                <td th:text="${b.description}"> </td>
+                <td> || </td>
+                <td> 
+                    <input type="submit" value="C O N S U M E" th:onclick="alert([[${b.name}]]);"/> 
+                </td>
+            </tr>
+        </form>
     </table>
 
 </body>
