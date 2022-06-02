@@ -32,12 +32,14 @@ unhide the elements.
                 <td th:text="${b.description}"> </td>
                 <td> || </td>
                 <td> 
-                    <input type="submit" value="C O N S U M E" th:onclick="alert([[${b.name}]]);"/> 
+                    <input type="submit" value="C O N S U M E" th:onclick="document.getElementById('name').value = [[${b.name}]];"/> 
                 </td>
             </tr>
         </form>
     </table>
+    <p th:text="${output}">
 
+    </p>
 </body>
 
 </html>
