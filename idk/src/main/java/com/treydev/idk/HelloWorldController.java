@@ -54,13 +54,13 @@ public class HelloWorldController {
     {
         //TODO: in actual implementation, something to get menu type
        model.addAttribute("TableName", "Inventory");
-       if(Items.inventory == null)
+       if(Item.inventory == null)
        {
-            Items.inventory = new ArrayList<Items>();
-            Items.inventory.add(new Items("Red Potion", (short) 15, "Smells kinda fishy"));
-            Items.inventory.add(new Items("Pink Potion", (short) 11, "Smells kinda beefy"));
+            Item.inventory = new ArrayList<Item>();
+            Item.inventory.add(new Item("Red Potion", (short) 15, "Smells kinda fishy"));
+            Item.inventory.add(new Item("Pink Potion", (short) 11, "Smells kinda beefy"));
        }
-       model.addAttribute("Table", Items.inventory);
+       model.addAttribute("Table", Item.inventory);
         return "Menu";
     }
     @PostMapping("menu")
@@ -68,15 +68,15 @@ public class HelloWorldController {
     {
         //TODO: in actual implementation, something to get menu type
        model.addAttribute("TableName", "Inventory");
-       Items.InitializeStubbedInventory();
+       Item.InitializeStubbedInventory();
 
        String output = "";
        if(!name.isEmpty())
-           output += Items.consume(name);
+           output += Item.consume(name);
 
         output += "\nWhat would you like to do?";
         model.addAttribute("output", output);
-        model.addAttribute("Table", Items.inventory);
+        model.addAttribute("Table", Item.inventory);
         return "Menu";
     }
 }
